@@ -3,9 +3,10 @@
 import numpy as np
 import random
 import cv2
+from PIL import Image
 
-width = 200
-height = 200
+width = 750
+height = 750
 grid = [[{"in":False, "frontier": False, "dir":[]} for j in range(height)] for i in range(width)]
 frontier = []
 line_thickness = 1
@@ -88,8 +89,12 @@ def draw_maze():
         for c, column in enumerate(row):
             for element in opposite_list_direction(column["dir"]):
                 draw_line(r, c, element)
-    cv2.imshow("Image", image)
-    cv2.waitKey()
+    #cv2.imshow("Image", image)
+    #cv2.waitKey()
+    cv2.imwrite("image.png", image)
+    img = cv2.imread("image.png")
+    im_pil = Image.fromarray(img)
+    im_pil.save("maze.pdf")
 
 
 def main():
