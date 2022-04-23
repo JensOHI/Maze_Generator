@@ -1,9 +1,11 @@
+# Based on the help from https://weblog.jamisbuck.org/2011/1/10/maze-generation-prim-s-algorithm
+
 import numpy as np
 import random
 import cv2
 
-width = 50
-height = 50
+width = 200
+height = 200
 grid = [[{"in":False, "frontier": False, "dir":[]} for j in range(height)] for i in range(width)]
 frontier = []
 line_thickness = 1
